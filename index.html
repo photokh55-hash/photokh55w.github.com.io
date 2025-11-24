@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smile with your life Dude</title>
+  <style>
+    body {
+      background-color: #FFC4C4;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      margin: 0;
+    }
+    
+    .navbar {
+      background-color: #FFF8DE;
+      display: flex;
+      /* ทำให้ข้อความเมนูตรงกลาง */
+      justify-content: center; 
+      align-items: center;
+      padding: 10px 20px;
+    }
+    .navbar ul { list-style: none; display: flex; margin: 0; padding: 0; }
+    .navbar ul li { margin: 0 15px; }
+    .navbar ul li a {
+      color: #E83C91; text-decoration: none; font-weight: bold;
+      padding: 8px 12px; border-radius: 4px;
+      transition: background 0.3s;
+    }
+    .navbar ul li a:hover { background: rgba(255,255,255,0.6); color: #430707; }
+    .logo { color: #E83C91; font-weight: bold; }
+
+    /* Gallery Grid Setup */
+    .gallery-grid {
+      display: grid;
+      /* ใช้ 4 คอลัมน์เพื่อจัดตำแหน่งปุ่มได้ง่ายเมื่อมี 2 รายการต่อแถว */
+      grid-template-columns: repeat(4, 1fr); 
+      gap: 20px; 
+      padding: 20px;
+    }
+    
+    /* NEW CSS: จัดตำแหน่งปุ่มให้อยู่ตรงกลางของ Grid */
+    .button-in-grid {
+        /* ปุ่มกินพื้นที่จากเส้นกริดที่ 2 ถึง 4 (คลุมคอลัมน์ 2 และ 3) */
+        grid-column: 2 / 4; 
+        align-self: center; /* จัดกลางแนวตั้ง */
+        justify-self: center; /* จัดกลางแนวนอน */
+        padding: 0; 
+    }
+
+    /* กำหนดให้ Gallery Item กินพื้นที่ 2 คอลัมน์ เพื่อให้มี 2 รายการต่อแถว */
+    .gallery-item {
+        grid-column: span 2; 
+    }
+
+    .gallery-item a {
+      display: block; text-decoration: none; color: #ffffff; font-weight: bold;
+      border: 3px solid #fff; border-radius: 12px; overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 300px; 
+      object-fit: cover;
+      display: block;
+      border-bottom: 3px solid #ffffff;
+      border-radius: 8px 8px 0 0;
+    }
+    .gallery-item a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
+    }
+    .gallery-item b { display: block; text-align: center; padding: 10px; }
+    
+    /* Button Styling */
+    .action-button {
+      background-color: #A53860; 
+      color: #FFF8DE; 
+      border: none;
+      padding: 12px 25px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.1s;
+      text-transform: uppercase;
+    }
+    .action-button:hover {
+      background-color: #8C2C4B; 
+      transform: scale(1.05);
+    }
+
+    /* Lightbox Popup */
+    .lightbox {
+      display: none; position: fixed; z-index: 1000;
+      left: 0; top: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8); justify-content: center; align-items: center;
+    }
+    .lightbox-content {
+      background: #fff; padding: 20px; border-radius: 12px;
+      max-width: 600px; text-align: center;
+    }
+    .lightbox-content img { max-width: 100%; border-radius: 8px; }
+    .lightbox-content p { color: #E83C91; margin-top: 10px; }
+    .close {
+      position: absolute; top: 20px; right: 30px;
+      font-size: 30px; font-weight: bold; color: white; cursor: pointer;
+    }
+    .desc-gachia  { color:  #A53860; background-color: #3A0519; }
+    .desc-jujutsu { color:  #A53860; background-color: #3A0519; }
+    .desc-dandadan { color: #A53860; background-color: #3A0519; }
+    .desc-chainsaw { color: #A53860; background-color: #3A0519; }
+    b{
+      color: #A53860;
+    }
+    h1{
+      color: #A53860;
+      text-shadow: -3px -1px 10px  rgba(0, 0, 0, 0.8);
+    
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <div class="logo"> Happy Bird Day Mama </div>
+    <ul>
+      
+    </ul>
+  </nav>
+</header>
+ 
+<section>
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <a href="#" onclick="openLightbox('1.png','สุขสันต์วันเกิดพี่สาวสุดที่รัก❤️ ขอบคุณที่เป็นคนสำคัญในชีวิต เป็นพี่ที่ให้คำปรึกษาที่ดีที่สุด ขอให้เป็นปีที่สวยงาม เต็มไปด้วยความสุข ความสำเร็จ และเรื่องราวดีๆ นะค่ะ')">
+        <img src="1.1.jpg" alt="จาก น้าแป้ง"> 
+        <b>จาก น้าแป้ง</b>
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="#" onclick="openLightbox('4.1.png','I am Country Boy but I Love You Forever(sometime), Happy Birthday.')">
+        <img src="4.png" alt="Yamishibai: Japanese Ghost Stories">
+        <b>จาก ป๊า</b>
+      </a>
+    </div>
+
+    <div class="center-button button-in-grid">
+        <button class="action-button" onclick="window.location.href='Umbraker!!!.html'">
+            คลิกดูทั้งหมด!
+        </button>
+    </div>
+
+    <div class="gallery-item">
+      <a href="#" onclick="openLightbox('5.png', 'สุขสันต์วันเกิดครับแม่ ผมขอให้ปีนี้เป็นปีที่ดีนะครับ ผมอาจไม่ได้เป็นเด็กดีมากแต่ผมก็รักแม่เหมือนกันครับ ผมขอให้แม่สุขภาพแข็งแรงมีเงินเยอะๆจะได้มาเลี้ยงผม >:0')">
+        <img src="5.1.png" alt="Puella Magi Madoka Magica">
+        <b>จาก ลูกชาย</b>
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="#" onclick="openLightbox('6.jpg','Happy Birthday Thank you for your endless love and support. I’m truly grateful to have you in my life and Wishing you a birthday filled with love, joy, and good health. You deserve all the best, Mom')">
+        <img src="6.1.jpg" alt="Takopi's Original Sin">
+        <b>จาก ลูกสาว</b>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div id="lightbox" class="lightbox">
+  <span class="close" onclick="closeLightbox()">&times;</span>
+  <div class="lightbox-content">
+    <img id="lightbox-img" src="" alt="">
+    <p id="lightbox-desc"></p>
+  </div>
+</div>
+
+<script>
+  function openLightbox(imgSrc, description, cssClass) {
+    const lightbox = document.getElementById("lightbox");
+    const img = document.getElementById("lightbox-img");
+    const desc = document.getElementById("lightbox-desc");
+
+    lightbox.style.display = "flex";
+    img.src = imgSrc;
+    desc.innerText = description;
+
+    // ลบคลาสเดิมก่อน แล้วเพิ่มคลาสใหม่
+    desc.className = '';
+    if(cssClass) desc.classList.add(cssClass);
+  }
+
+  function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
+</html>
